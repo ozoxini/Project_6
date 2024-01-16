@@ -1,5 +1,4 @@
 # PointData.py
-
 class PointData:
     def __init__(self, date_time, autokonsumpcja, eksport, import_val, pobor, produkcja):
         self.date_time = date_time
