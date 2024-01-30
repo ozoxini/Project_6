@@ -61,12 +61,6 @@ public:
         return total_sum;
     }
 
-    // Other sum and average methods would be similar to sum_autokonsumpcja
-
-    // Other compare methods would be implemented here
-
-    // Other methods like search_records, print_data_in_range would be implemented here
-
 private:
     TreeNode* root;
 
