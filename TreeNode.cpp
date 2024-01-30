@@ -1,27 +1,34 @@
-#include "TreeNode.h"
+#include <string>
+#include <unordered_map>
+#include <memory>
+#include <vector>
 
-TreeNode::TreeNode(std::string value) : value(value) {}
+class TreeNode {
+public:
+    int value;
+    std::unordered_map<int, std::shared_ptr<TreeNode>> children;
 
-TreeNode::~TreeNode() {
-    // Zwolnij pamięć dla dzieci
-    for (auto& pair : children) {
-        delete pair.second;
+    TreeNode(int val) : value(val) {}
+
+    void add_child(int key, std::shared_ptr<TreeNode> child) {
+        children[key] = child;
     }
-}
 
-void TreeNode::addChild(std::string key, TreeNode* child) {
-    children[key] = child;
-}
-
-TreeNode* TreeNode::getChild(std::string key) {
-    auto it = children.find(key);
-    return (it != children.end()) ? it->second : nullptr;
-}
-
-std::vector<TreeNode*> TreeNode::getChildren() {
-    std::vector<TreeNode*> result;
-    for (const auto& pair : children) {
-        result.push_back(pair.second);
+    std::shared_ptr<TreeNode> get_child(int key) {
+        auto it = children.find(key);
+        if (it != children.end()) {
+            return it->second;
+        }
+        return nullptr;
     }
-    return result;
-}
+
+    std::vector<std::shared_ptr<TreeNode>> get_children() {
+        std::vector<std::shared_ptr<TreeNode>> childList;
+        for (auto& pair : children) {
+            childList.push_back(pair.second);
+        }
+        return childList;
+    }
+};
+
+

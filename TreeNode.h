@@ -1,20 +1,22 @@
 #ifndef TREENODE_H
 #define TREENODE_H
 
-#include <string>
-#include <map>
+#include <memory>
+#include <unordered_map>
 #include <vector>
 
 class TreeNode {
 public:
-    std::string value;
-    std::map<std::string, TreeNode*> children;
+    int value;
+    std::unordered_map<int, std::shared_ptr<TreeNode>> children;
 
-    TreeNode(std::string value);
-    ~TreeNode(); // Dodane, aby zwolnić pamięć
-    void addChild(std::string key, TreeNode* child);
-    TreeNode* getChild(std::string key);
-    std::vector<TreeNode*> getChildren();
+    TreeNode(int val);
+
+    void add_child(int key, std::shared_ptr<TreeNode> child);
+
+    std::shared_ptr<TreeNode> get_child(int key);
+
+    std::vector<std::shared_ptr<TreeNode>> get_children();
 };
 
-#endif  // TREENODE_H
+#endif // TREENODE_H
