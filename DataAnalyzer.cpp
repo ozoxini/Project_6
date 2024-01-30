@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stack>
 
-// Assuming TreeNode and PointData classes are defined in their respective headers
+
 #include "TreeNode.h"
 #include "PointData.h"
 
@@ -60,12 +60,6 @@ public:
         std::cout << "Suma autokonsumpcji od " << start_date << " do " << end_date << ": " << total_sum << std::endl;
         return total_sum;
     }
-
-    // Other sum and average methods would be similar to sum_autokonsumpcja
-
-    // Other compare methods would be implemented here
-
-    // Other methods like search_records, print_data_in_range would be implemented here
 
 private:
     TreeNode* root;
