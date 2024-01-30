@@ -13,7 +13,6 @@ public:
 
     void buildTree(const std::vector<PointData>& points);
     double sumAutokonsumpcja(const std::string& start_date, const std::string& end_date);
-    // Implementuj pozostałe funkcje według potrzeb
 
 private:
     TreeNode* root;
