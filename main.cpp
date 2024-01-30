@@ -166,15 +166,35 @@ int main() {
                     break;
                 case 16:
                     // Add code for case 16
+                     std::string condition;
+                    std::cout << "Podaj warunek wyszukiwania: ";
+                    std::cin.ignore(); 
+                    std::getline(std::cin, condition);
+                    analyzer.search_records(condition);
                     break;
                 case 17:
                     // Add code for case 17
+                    std::string start_date, end_date;
+                    std::cout << "Podaj początkową datę (format: RRRR-MM-DD GG:MM): ";
+                    std::cin >> start_date;
+                    std::cout << "Podaj końcową datę (format: RRRR-MM-DD GG:MM): ";
+                    std::cin >> end_date;
+                    analyzer.print_data_in_range(start_date, end_date);
+
                     break;
                 case 18:
                     // Add code for case 18
+                    std::string binary_filename;
+                    std::cout << "Podaj nazwę pliku binarnego do zapisu: ";
+                    std::cin >> binary_filename;
+                    analyzer.save_to_binary(binary_filename);
                     break;
                 case 19:
                     // Add code for case 19
+                     std::string binary_filename;
+                     std::cout << "Podaj nazwę pliku binarnego do odczytu: ";
+                     std::cin >> binary_filename;
+                     analyzer.read_from_binary(binary_filename);
                     break;
                 case 20:
                     break;
